@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap');
+
+$border-radius: .5rem;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+html, body {
+    font-family: 'Roboto Slab', serif;
+}
+
+.modal-content {
+    border-radius: .75rem;
+}
+
+strong {
+    font-weight: 600;
+}
+
+.card {
+    @extend .card;
+    @extend .shadow;
+    border: 0;
+    transition: box-shadow 100ms ease-in;
+
+    &:hover {
+        @extend .shadow-lg;
+    }
+}
+
+.title {
+  @extend .d-inline-block;
+  @extend .font-weight-bold;
+  @extend .text-left;
+  @extend .h1;
+  @extend .pr-3;
+  box-shadow: inset 0rem -1rem rgba(255, 0, 59, 0.18);
+}
+
+@media screen and (min-width: 550px) {
+  .title {
+    font-size: 4rem;
+    box-shadow: inset 0rem -1.5rem rgba(255, 0, 59, 0.18);
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 0.75;
+}
+
+@media (max-width: 991px)  and (min-width: 570px){
+  .card-columns {
+    column-count: 2
+  }
+}
+
+.card-img-top {
+  min-height: 8rem;
+}
