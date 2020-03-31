@@ -89,10 +89,10 @@ class Home extends Component<any, any> {
 
   getArticleFooter(sourceName: undefined | string, publishedAt: undefined | string) {
     if (sourceName && publishedAt) {
-      let relativeTime = formatDistance(new Date(publishedAt), new Date(), { locale: es }).replace('alrededor de', 'Hace')
+      let relativeTime = formatDistance(new Date(publishedAt), new Date(), { locale: es }).replace('alrededor de', '')
       return (
         <>
-          {sourceName} &nbsp;·&nbsp; {relativeTime}
+          {sourceName} &nbsp;·&nbsp; Hace {relativeTime}
         </>
       )
     }
@@ -121,10 +121,12 @@ class Home extends Component<any, any> {
       <div>
         <Head>
           <title>CVD19 News</title>
+          <meta name='description' content='Agregador de noticias sobre el COVID-19' />
+          <meta property='og:image' content='/og-image.png' />
           <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-            key="viewport"
+            name='viewport'
+            content='initial-scale=1.0, width=device-width'
+            key='viewport'
           />
         </Head>
         <header
@@ -136,30 +138,30 @@ class Home extends Component<any, any> {
             paddingTop: '3rem',
             paddingBottom: '9rem'
           }}>
-            <div className="container">
-              <div className="d-flex"></div>
+            <div className='container'>
+              <div className='d-flex'></div>
               <h1 className='title'>
                 CVD19 News
               </h1>
-              <div className="row">
-                <div className="col-12 col-sm-8 col-lg-9 col-xl-10">
+              <div className='row'>
+                <div className='col-12 col-sm-8 col-lg-9 col-xl-10'>
                   <p className='text-secondary'>Agregador de noticias sobre el COVID-19</p>
                 </div>
                 <div className='col-12 col-sm-4 col-lg-3 col-xl-2'>
                   <select
                     value={selectedCountry}
                     onChange={this.onCountrySelect}
-                    name="countryPicker"
-                    className="form-control form-control-sm">
-                    <option value="ar">Argentina</option>
-                    <option value="br">Brasil</option>
-                    <option value="it">Italia</option>
-                    <option value="us">Estados Unidos</option>
-                    <option value="de">Alemania</option>
+                    name='countryPicker'
+                    className='form-control form-control-sm'>
+                    <option value='ar'>Argentina</option>
+                    <option value='br'>Brasil</option>
+                    <option value='it'>Italia</option>
+                    <option value='us'>Estados Unidos</option>
+                    <option value='de'>Alemania</option>
                   </select>
                 </div>
               </div>
-              <hr className="mb-0" />
+              <hr className='mb-0' />
             </div>
           </div>
         </header>
@@ -171,8 +173,8 @@ class Home extends Component<any, any> {
           onHide={this.handleClose}>
           <Modal.Body className='px-0 pt-0'>
             <Image width='100%' src={selectedArticle?.urlToImage} />
-            <div className="pt-4 px-4">
-              <h4><strong>{selectedArticle?.title}</strong></h4>
+            <div className='pt-4 px-4'>
+              <h4><strong>{selectedArticle?.title.split(' - ')[0]}</strong></h4>
               <p className='mb-0'>
                 {selectedArticle?.content.replace(/\[(.*?)\]/, '')}
                 <a target='_blank'
@@ -188,11 +190,11 @@ class Home extends Component<any, any> {
           </Modal.Footer>
         </Modal>
 
-        <div className="container">
+        <div className='container'>
           <main>
             {
               loading &&
-              <div className="d-flex ">
+              <div className='d-flex '>
                 <FontAwesomeIcon className='mx-auto my-3' icon={faSpinner} pulse size='3x' />
               </div>
             }
@@ -212,7 +214,7 @@ class Home extends Component<any, any> {
                       onClick={this.handleArticleClick.bind(null, article)}
                       className='mb-4 text-left'
                       key={article.url}>
-                      <Card.Img variant="top" src={article.urlToImage ? article.urlToImage : '/img-placeholder.png'} />
+                      <Card.Img variant='top' src={article.urlToImage ? article.urlToImage : '/img-placeholder.png'} />
                       <Card.Body>
                         <Card.Title className='mb-0'>
                           {article.title.split(' - ')[0]}
@@ -229,7 +231,7 @@ class Home extends Component<any, any> {
             {
               !loading &&
               <div>
-                <p className="lead text-center pt-4 pb-2 text-muted">
+                <p className='lead text-center pt-4 pb-2 text-muted'>
                   Esas son todas las noticias por el momento
                 </p>
               </div>

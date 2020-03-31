@@ -32,14 +32,14 @@ strong {
   @extend .font-weight-bold;
   @extend .text-left;
   @extend .h1;
-  @extend .pr-3;
+  @extend .pr-1;
   box-shadow: inset 0rem -1rem rgba(255, 0, 59, 0.18);
 }
 
 @media screen and (min-width: 550px) {
   .title {
     font-size: 4rem;
-    box-shadow: inset 0rem -1.5rem rgba(255, 0, 59, 0.18);
+    box-shadow: inset 0rem -1.8rem rgba(255, 0, 59, 0.18);
   }
 }
 
