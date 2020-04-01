@@ -48,7 +48,7 @@ class Home extends Component<any, any> {
 
   state = {
     isModalVisible: false,
-    selectedCountry: 'AR',
+    selectedCountry: 'ar',
     selectedArticle: null,
     articles: [],
     loading: true
@@ -154,9 +154,13 @@ class Home extends Component<any, any> {
                     name='countryPicker'
                     className='form-control form-control-sm'>
                     <option value='ar'>Argentina</option>
+                    <option value='mx'>México</option>
+                    <option value='ve'>Venezuela</option>
                     <option value='br'>Brasil</option>
-                    <option value='it'>Italia</option>
                     <option value='us'>Estados Unidos</option>
+                    <option value='au'>Australia</option>
+                    <option value='it'>Italia</option>
+                    <option value='fr'>Francia</option>
                     <option value='de'>Alemania</option>
                   </select>
                 </div>
