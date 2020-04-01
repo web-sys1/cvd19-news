@@ -40,9 +40,11 @@ class Home extends Component<any, any> {
 
   static getInitialProps = async function () {
     const { data } = await axios('https://ipinfo.io');
+    const country = data.country.toLowerCase()
+    console.log(country)
 
     return {
-      country: data.country.toLowerCase()
+      country
     };
   };
 
